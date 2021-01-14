@@ -1,0 +1,3 @@
+[submodule "lib/qdateconvertor"]
+	path = lib/qdateconvertor
+	url = https://github.com/kharazi/qdateconvertor.git
