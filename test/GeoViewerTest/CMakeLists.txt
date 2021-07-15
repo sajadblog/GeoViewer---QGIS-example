@@ -43,12 +43,10 @@ qt5_wrap_ui (GISTEST_UI_FILES_MOC  ${GISTEST_UI_FILES})
 
 set(
     RESOURCE
-
+    icons.qrc
     )
 
 qt5_add_resources(RESOURCE_ADDED ${RESOURCE})
-
-#add_subdirectory("images")
 
 # QGIS Dependencies -------------------------------------------------------------
 file(GLOB_RECURSE QGIS_FILESs "qgis/*.cpp" "qgis/*.h")

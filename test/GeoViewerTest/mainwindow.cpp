@@ -27,9 +27,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-	ui->mapWidget->addLayer("file:////run/media/hosseinisajad/data/maps/map-iran/googlesat/{z}/{x}/{y}.jpg", eLayerType::XYZ, "Local XYZ Layer");
-	ui->mapWidget->addLayer("file:////home/hosseinisajad/maps/tile/openstreetmap/{z}/{x}/{y}.png", eLayerType::XYZ, "XYZ Layer");
-	ui->mapWidget->addLayer("/home/hosseinisajad/maps/TM_WORLD_BORDERS-0.3/TM_WORLD_BORDERS-0.3.shp", eLayerType::Vector, "Borders Layer");
+    ui->mapWidget->addLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", eLayerType::XYZ, "OSM");
 
 	addDockWidget(Qt::RightDockWidgetArea, ui->mapWidget->getGeoDataContainer()->getComponent(eComponentType::Layers)->getDockObject());
 	addDockWidget(Qt::LeftDockWidgetArea, ui->mapWidget->getGeoDataContainer()->getComponent(eComponentType::Browser)->getDockObject());
@@ -83,7 +81,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	{
 		GeoMarkerItem *m_itemTest = static_cast<GeoMarkerItem *>(ui->mapWidget->addItem(eItemType::marker));
 		m_itemTest->setPosition(QVector3D((qrand() / 10000)%100,(qrand() / 10000)%100, qrand() % 13000));
-		m_itemTest->setPixmap(QPixmap("/home/hosseinisajad/Project/gis/mapTest/icons/airplane-black.png"));
+        m_itemTest->setPixmap(QPixmap(":/icons/airplane-black.png"));
 		m_itemTest->textItem()->setText("simulator");
 		markerList.append(m_itemTest);
 	}
@@ -107,7 +105,7 @@ MainWindow::MainWindow(QWidget *parent) :
 				m_itemTest->textItem()->setText("10");
 				for(int j = 0 ; j < 10 ; j++)
 					m_itemTest->setPosition(QVector3D((qrand() / 10000)%100,(qrand() / 10000)%100, qrand() % 13000));
-				m_itemTest->setPixmap(QPixmap("/home/hosseinisajad/Project/gis/mapTest/icons/airplane-black.png"));
+                m_itemTest->setPixmap(QPixmap(":/icons/airplane-black.png"));
 			}
 
 		}else{
